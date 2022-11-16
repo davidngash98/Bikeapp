@@ -78,10 +78,6 @@ def bike(request):
             book = form.save(commit=False)
             book.user=request.user
             book.save()
-            # username= book.user.username
-            # email=book.user.email
-            # send_welcome_email(username,email)
-            # print(username,email)
             return redirect('/')
     else:
         form=BookingForm()

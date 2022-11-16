@@ -1,36 +1,40 @@
-{% load static%}
-<div class="box">
-    <form class="login-form" method="post">
-        
-        <section class="login-form-container" >
-            <section class="h-100 gradient-form" style="background-color: #eee;">
-        
-               <div class="container">
-                 <div class="row">
-                     <div class="col-md-6">
-                        
-                        <h4 class="mt-1 mb-5 pb-1">Welcome to PedalPal</h4>
-                        <form method="POST" action="">
-                            <link rel="stylesheet" href="{%static 'css/login.css'%}">
-                            {% csrf_token %}
-                            <p>Please login to your account</p>
-                  <div class="form-outline mb-4">
-                              <span>Username: </span> <input type="text" name="username" placeholder="Username ..." class="form-control">
-                            
-                  <div class="form-outline mb-4">
-                              Password:  <input type="password" name="password" placeholder="Password ..." class="form-control">
-                              
-                  <div class="form-outline mb-4">
-                              <input type="submit" value="login" class="btn btn-secondary">
-                              <p>Don't have an account? <a href="{% url 'register' %}" style="display:inline">Sign up</a></p>
-                        </form>
+{%extends "authentication/base.html"%}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <form class="login-form" method="post">
+                <section class="login-form-container" >
+                        <h1 class="text-center">Pedalpal</h1>
+                     <div class="container">
+                         <div class="row">
+                             <div class="col-md-6">
+                                <form method="POST" action="">
+                                    {% csrf_token %}
+                                    <div class="mb-3">
+                                      <span>Username: </span> <input type="text" name="username" placeholder="Username ..." class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                      Password:  <input type="password" name="password" placeholder="Password ..." class="form-control">
+                                    </div>
+                                      <input type="submit" value="login" class="btn btn-secondary mb-3">
+                                      <p>Don't have an account? <a href="{% url 'register' %}" style="display:inline">Sign up</a></p>
+                                </form>
+                             </div>
+                         </div>
                      </div>
-                 </div>
-             </div>
-           
-        </section>
-    </form>
+                   
+                </section>
+            </form>
+        </div>
     </div>
-    <img src="{% static 'images/login.png' %}" alt="image"
-style="width:1500px; margin-bottom:-600px;">
-    
+
+</div>
+{% endblock %}

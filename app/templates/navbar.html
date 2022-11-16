@@ -8,9 +8,7 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'station' %}">Stations</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'checkout' user.id%}">checkout</a>
-      </li>
+      
       {% if user.is_authenticated %}
       <li class="nav-item">
         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
