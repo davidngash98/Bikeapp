@@ -1,11 +1,13 @@
 from email.policy import default
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 
+
 # Create your models here.
 class Profile(models.Model):
-    profile_photo = models.ImageField(upload_to = 'articles/')
+    profile_photo = models.ImageField(upload_to = 'articles/',blank=True)
     bio = models.TextField(blank=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     phone_number = models.CharField(blank=True, max_length= 13)
@@ -16,6 +18,10 @@ class Profile(models.Model):
 
     def get_absolute_url(self):
         return reverse('home')
+ 
+
+            
+    
 class Station(models.Model):
     name=models.CharField(max_length= 100)
     location=models.CharField(max_length= 100)
