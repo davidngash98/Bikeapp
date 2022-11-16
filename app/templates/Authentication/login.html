@@ -19,10 +19,10 @@
                                 <form method="POST" action="">
                                     {% csrf_token %}
                                     <div class="mb-3">
-                                      <span>Username: </span> <input type="text" name="username" placeholder="Username ..." class="form-control">
+                                      <span>Username: </span> <input type="text" name="username" placeholder="Username ..." class="form-control" style="width:300px">
                                     </div>
                                     <div class="mb-3">
-                                      Password:  <input type="password" name="password" placeholder="Password ..." class="form-control">
+                                      Password:  <input type="password" name="password" placeholder="Password ..." class="form-control" style="width:300px">
                                     </div>
                                       <input type="submit" value="login" class="btn btn-secondary mb-3">
                                       <p>Don't have an account? <a href="{% url 'register' %}" style="display:inline">Sign up</a></p>
