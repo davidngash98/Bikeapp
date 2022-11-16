@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class="row">
-     <div class="col-md-4">
+     <div class="col-md-4 mx-auto">
         <div class="card" style="width: 24rem;">
           {% if  profile.profile_photo %}
             <img src="{{profile.profile_photo.url}}" alt="" srcset="">
@@ -24,7 +24,7 @@
         </div>
      </div>
      <div class="col-md-2">
-      <a href="{% url 'edit' user.id %}"><i class="fa fa-pencil fa-3x" aria-hidden="true" style="color:red"></i></a>
+      <a href="{% url 'edit' user.profile.id %}"><i class="fa fa-pencil fa-3x" aria-hidden="true" style="color:red"></i></a>
      </div>
     </div>
     <div class="row">

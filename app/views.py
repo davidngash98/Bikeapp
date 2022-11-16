@@ -7,6 +7,7 @@ from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
 
+
 from .email import send_welcome_email
 from .forms import BookingForm, CreateProfileForm, RatingsForm, RegisterForm
 from .models import Bike, Booking, Profile, Station
