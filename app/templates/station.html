@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{%block content%}
+<div class="container">
+{% for station in stations %}
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h3 class="card-title">{{station.name }}</h3>
+      <h4 class="card-text">{{station.location}}</h4>
+      <a href="{%url 'bikes' station.id%}">Available Bikes</a>
+    </div>
+  </div>
+{%endfor%}
+</div>
+{%endblock%}

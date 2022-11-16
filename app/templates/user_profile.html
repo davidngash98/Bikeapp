@@ -1,0 +1,28 @@
+{%extends "base.html"%}
+
+
+{% block content %}
+<h1 class="text-center">My profile</h1>
+
+<div class="container">
+    <div class="row">
+     <div class="col-md-4">
+        <div class="card" style="width: 24rem;">
+            <img src="{{profile.profile_photo.url}}" alt="" srcset="">
+            <div class="card-body">
+              <h5 class="card-title" style="color:black">{{ user.username }}</h5>
+              <p class="card-text" style="color:black">{{ user.profile.bio }}</p>
+            <p class="card-text" style="color:black"> {{ profile.phone_number }}</p>
+         
+            <p class="card-text" style="color:black"> {{ profile.Id_number }}</p>
+            </div>
+        </div>
+     </div>
+    </div>
+    <div class="row">
+           
+           
+    </div>
+</div>
+
+{%endblock%}

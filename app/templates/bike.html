@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{%block content%}
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-7">
+            <form action="{% url 'bike' %}" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="btn btn-primary mt-2">Book</button>
+              </form>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

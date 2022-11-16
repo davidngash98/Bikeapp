@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+{% for bike in bikes %}
+<img src="{{bike.bike_photo.url}}" alt="" srcset="">
+<a href="{% url 'bike'%}">Book</a>
+<a href="{% url 'rate_project' bike.id%}">rate</a>
+<h2>Kes 200 per hour</h2>
+
+{%endfor%}
+
+{%endblock%}

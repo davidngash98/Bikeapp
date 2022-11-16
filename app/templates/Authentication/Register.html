@@ -1,0 +1,11 @@
+<form action="" class="signup-form" method="post">
+                {% csrf_token %}
+                 {% for field in form %}
+                    <span style="margin:4px">{{ field.label }}:  {{ field }} </span>
+                    {{form.as_p}}
+                 {% endfor %}
+                 {{ form.errors }}
+                 <p>Have an account? <a href="">Log in</a></p>
+                 <input type="submit" name="submit" value="sign up" >
+               
+</form>
