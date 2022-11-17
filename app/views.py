@@ -1,12 +1,18 @@
-from django.shortcuts import render, redirect
-from .models import Profile, Station, Bike, Booking
+from django.conf import settings
+from django.contrib.auth import authenticate, login, logout
+from django.core.mail import send_mail
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView
-from .forms import RegisterForm, CreateProfileForm , BookingForm,RatingsForm
-from django.contrib.auth import logout,login,authenticate
-from django.conf import settings
-from django.core.mail import send_mail
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.models import User
+
+
 from .email import send_welcome_email
+from .forms import BookingForm, CreateProfileForm, RatingsForm, RegisterForm
+from .models import Bike, Booking, Profile, Station
+
+
 def register(request):
     form = RegisterForm()
     if request.method == 'POST':
@@ -27,11 +33,8 @@ def loginPage(request):
         user = authenticate(request,username=username,password=password)
         
         if user is not None:
-            login(request,user)
-            if user.profile is None: 
-                return redirect('create_profile')
-            else:
-                return redirect('/')
+            login(request,user) 
+            return redirect('/')
     
     return render(request,'Authentication/login.html',context)
 
@@ -78,10 +81,6 @@ def bike(request):
             book = form.save(commit=False)
             book.user=request.user
             book.save()
-            # username= book.user.username
-            # email=book.user.email
-            # send_welcome_email(username,email)
-            # print(username,email)
             return redirect('/')
     else:
         form=BookingForm()

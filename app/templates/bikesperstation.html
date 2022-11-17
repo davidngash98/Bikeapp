@@ -1,13 +1,21 @@
 {% extends "base.html" %}
 
 {%block content%}
-
-{% for bike in bikes %}
-<img src="{{bike.bike_photo.url}}" alt="" srcset="">
-<a href="{% url 'bike'%}">Book</a>
-<a href="{% url 'rate_project' bike.id%}">rate</a>
-<h2>Kes 200 per hour</h2>
-
-{%endfor%}
+<div class="container">
+    
+    <div class="row">
+        <div class="col-md-2"></div>
+        {% for bike in bikes %}
+        <div class="card mt-4" style="width: 18rem;margin-right:4px;">
+            <img class="card-img-top" src="{{bike.bike_photo.url}}" alt="Card image cap">
+            <div class="card-body">
+              
+              <a href="{% url 'bike'%}">Book</a>
+              <a href="{% url 'rate_project' bike.id%}">rate</a>
+            </div>
+          </div>
+          {%endfor%}
+    </div>
+</div>
 
 {%endblock%}
